@@ -1,8 +1,12 @@
 package com.animal;
 
+
 public class MainAnimal {
     public static void main(String[] args) {
 
+    	
+    	// '->' arrow is used for implementation
+    	
         // Code in shorter syntax/lines:
         Animal dog = noise -> noise;
         System.out.println(dog.makeNoise("bark"));
