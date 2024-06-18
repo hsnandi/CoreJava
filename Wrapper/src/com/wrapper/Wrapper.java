@@ -19,6 +19,11 @@ public class Wrapper {
         Integer number2 = 10;
         Integer number3 = 20;
         
+        
+        number.compareTo(number3); //Used for comparing two numbers.
+        number.equals(number3);    //Used for checking if two numbers are equal or not.
+        
+        
         add(number2, number3);
         
         Integer number4 = Integer.parseInt("123");
