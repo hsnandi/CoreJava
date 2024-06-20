@@ -25,7 +25,6 @@ public class TryCatch {
 		} catch (ArithmeticException ex) {
 			System.out.println(ex);
 			System.out.println("Error: Division by zero");
-
 		}
 	}
 
