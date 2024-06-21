@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class WriteToFile {
     public static void main(String[] args) {
         try (
-            FileWriter fw = new FileWriter("demo1.txt", true); 
+            FileWriter fw = new FileWriter("demo1.txt"); 
             BufferedWriter bw = new BufferedWriter(fw);
             Scanner scanner = new Scanner(System.in)
         ) {
@@ -24,6 +24,8 @@ public class WriteToFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+       
     }
 }
 
