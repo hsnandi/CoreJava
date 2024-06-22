@@ -68,8 +68,8 @@ public class DateTimeApiDemo {
 	    System.out.println(timeNow2);
 	    System.out.println(timeNow2.minus(10, ChronoUnit.HOURS)); //To perform operation in minutrs, seconds or hours of time.
 	
-	    boolean isAfter = LocalTime.parse("23.00.00").isAfter(LocalTime.parse("22.00.00"));		
-	    boolean isBefore  = LocalTime.parse("21.00.00").isBefore(LocalTime.parse("22.00.00"));
+	    boolean isAfter = LocalTime.parse("01.00.00").isAfter(LocalTime.parse("02.00.00"));		
+	    boolean isBefore  = LocalTime.parse("02.00.00").isBefore(LocalTime.parse("03.00.00"));
 	    System.out.println(isAfter);
 	    System.out.println(isBefore);
 	    
@@ -88,7 +88,7 @@ public class DateTimeApiDemo {
 	    	e.printStackTrace();
 	    }
 	    
-	    System.out.println(newDate);	    
+	    System.out.println(newDate);	            
 	    LocalDate fromDate = newDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();	    
 	    System.out.println(fromDate.getDayOfWeek());
 	   
@@ -96,5 +96,6 @@ public class DateTimeApiDemo {
 	    System.out.println(fromTime.getHour());
 	}
 }
+
 
         
