@@ -1,13 +1,23 @@
 package com.date_time_api;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 public class DateTimeApiDemo {
   
 	public static void main(String[] args) {
+		
+		//Date:
+		
 		LocalDate today =  LocalDate.now();   //This function(LocalDate.now) assigns date of our system for output.
 		System.out.println(today);
 		
@@ -35,7 +45,55 @@ public class DateTimeApiDemo {
 	    System.out.println(strbDay);
 	    bDay= bDay.plusWeeks(2);   //To know date after exactly 2 weeks of bDay.
 	    System.out.println(bDay);
+	    
+		 Period p = Period.between(LocalDate.now(), bDay);   //Period is Used to know difference between days
+		 System.out.println("Years:" + p.getYears());
+		 System.out.println("Months: " +  p.getMonths());
+		 System.out.println("Days" + p.getDays());
+		 
+		 DayOfWeek bDayminus5= bDay.minus(Period.ofDays(5)).getDayOfWeek();
+		 System.out.println(bDayminus5);
+		   
+	    
+		 
+	    //Time:
+	    
+	    LocalTime timeNow=  LocalTime.now();
+	    System.out.println(timeNow);
 	
+	    LocalTime timeNow1= LocalTime.of(02, 54);
+	    System.out.println(timeNow1);
+	    
+	    LocalTime timeNow2 = LocalTime.parse("13:30:40");
+	    System.out.println(timeNow2);
+	    System.out.println(timeNow2.minus(10, ChronoUnit.HOURS)); //To perform operation in minutrs, seconds or hours of time.
+	
+	    boolean isAfter = LocalTime.parse("23.00.00").isAfter(LocalTime.parse("22.00.00"));		
+	    boolean isBefore  = LocalTime.parse("21.00.00").isBefore(LocalTime.parse("22.00.00"));
+	    System.out.println(isAfter);
+	    System.out.println(isBefore);
+	    
+	    
+	    Duration timeDuration = Duration.between(LocalTime.parse("09:09"), LocalTime.parse("08:08"));
+	    System.out.println(timeDuration.toHours());
+	    System.out.println(timeDuration.toMinutes());
+	    
+	    
+	    SimpleDateFormat simpleDate = new SimpleDateFormat("dd.MM.yyy");
+	    Date newDate = null;
+	    
+	    try {
+	         newDate = simpleDate.parse("01.01.2001");
+	    } catch(ParseException e) {
+	    	e.printStackTrace();
+	    }
+	    
+	    System.out.println(newDate);	    
+	    LocalDate fromDate = newDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();	    
+	    System.out.println(fromDate.getDayOfWeek());
+	   
+	    LocalTime fromTime = newDate.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();  
+	    System.out.println(fromTime.getHour());
 	}
 }
 
